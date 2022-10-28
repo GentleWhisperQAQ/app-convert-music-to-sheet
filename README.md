@@ -44,3 +44,4 @@ software engineering project (an app to convert music to sheet)
 #### 2.2.4 E-R图
 
 ## 3. 原型系统设计
+原型链接：https://modao.cc/app/Mrs1ueerkbg59t1wJ0O8c#screen=sl9oe6eeid7362x
