@@ -33,11 +33,14 @@ software engineering project (an app to convert music to sheet)
 ### 1.4 人员管理和项目进度管理
 
 ## 2. 需求分析
-### 用例图
+### 2.1 需求分析概述
+### 2.2 UML相关需求分析图
+#### 2.2.1 用例图
 ![用例图](./pictures/用例图.png)
-### 顺序图
+#### 2.2.2 顺序图
 ![顺序图](./pictures/顺序图.png)
-### 类图
+#### 2.2.3 类图
 ![类图](./pictures/类图.png)
+#### 2.2.4 E-R图
 
 ## 3. 原型系统设计
