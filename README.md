@@ -30,6 +30,8 @@ software engineering project (an app to convert music to sheet)
 
 ### 1.3 可行性分析
 
+### 1.4 人员管理和项目进度管理
+
 ## 2. 需求分析
 ### 用例图
 ![用例图](./pictures/用例图.png)
@@ -37,3 +39,5 @@ software engineering project (an app to convert music to sheet)
 ![顺序图](./pictures/顺序图.png)
 ### 类图
 ![类图](./pictures/类图.png)
+
+## 3. 原型系统设计
