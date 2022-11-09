@@ -196,7 +196,7 @@ Musicvisualizer.prototype.visualize = function () {
 		// console.log(avgfreq)
 		var noteIndex = normalSearch(noteArr, avgfreq)
 		// console.log(noteArr)
-		compareToNum(noteIndex)
+		setInterval(compareToNum(noteIndex),1000)
 		requestAnimationFrame(fn);
 	}
 	requestAnimationFrame(fn);
