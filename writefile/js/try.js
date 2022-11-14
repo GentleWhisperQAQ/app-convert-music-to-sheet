@@ -140,6 +140,8 @@ function freqToNote(arr) {
     }
 }
 
+
+
 //隔一段时间采样*
 
 //写文件
