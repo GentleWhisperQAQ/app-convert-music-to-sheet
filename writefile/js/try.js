@@ -17,6 +17,7 @@ const keyList = ['6(-4)', '6#(-4)', '7(-4)', '1(-3)', '1#(-3)', '2(-3)', '2#(-3)
     '6(2)', '6#(2)', '7(2)', '1(3)', '1#(3)', '2(3)', '2#(3)', '3(3)', '4(3)', '4#(3)', '5(3)', '5#(3)',
     '6(3)', '6#(3)', '7(3)', '1(4)', '1#(4)', '2(4)', '2#(4)', '3(4)', '4(4)', '4#(4)', '5(4)', '5#(4)']
 
+var flag = 0
 var finalNoteArray = new Array();
 var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
@@ -52,13 +53,16 @@ function getData() {
 
 function playFun(buffer) {
     AudioBufferSourceNode.buffer = buffer; // AudioBuffer数据赋值给buffer属性
-    //AudioBufferSourceNode.connect(audioCtx.destination); // 如果只是播放音频，这边就直接将AudioBufferSourceNode连接到AudioDestinationNode
+    AudioBufferSourceNode.connect(audioCtx.destination); // 如果只是播放音频，这边就直接将AudioBufferSourceNode连接到AudioDestinationNode
     AudioBufferSourceNode.connect(AnalyserNode);  // 实现播放后，需要将bufferSourceNode连接到AnalyserNode，才能通过AnalyserNode获取后面可视化所需的数据
     AudioBufferSourceNode.loop = false;  // 循环播放，默认为false
     AudioBufferSourceNode.start(0); // 开始播放音频
-    AudioBufferSourceNode.onended = function (){ //播放完成 
+
+    AudioBufferSourceNode.onended = function () { //播放完成 
+        //AudioBufferSourceNode.stop()
+        flag = 1
         console.log("播放完成")
-        window.cancelAnimationFrame(myReq);//跳走
+        // window.cancelAnimationFrame(myReq);//跳走
     }
 }
 
@@ -78,9 +82,11 @@ function fn() {
         freqToNote(arr)
     }
     i++
-    requestAnimationFrame(fn);
+    if (flag == 0) {
+        requestAnimationFrame(fn);
+    }
 }
-var myReq=requestAnimationFrame(fn);
+var myReq = requestAnimationFrame(fn);
 
 
 
@@ -133,7 +139,7 @@ function freqToNote(arr) {
     AnalyserNode.getByteFrequencyData(arr);// 将音频频域数据复制到传入的Uint8Array数组
     var maxEnergyFreq = getMaxRange(arr)         // 获取最大振幅频率
     var noteIndex = normalSearch(noteArr, maxEnergyFreq) // 获取对应音符下标
-    if(noteIndex!=0){
+    if (noteIndex != 0) {
         console.log(keyList[noteIndex]) // 打印对应音符下标
         finalNoteArray.push(keyList[noteIndex])
         console.log(finalNoteArray)

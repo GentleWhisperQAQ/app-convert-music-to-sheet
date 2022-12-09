@@ -110,7 +110,8 @@ function controlMediaRecorder() {
 
 
         mediaRecorder.stop()
-        //一次录音解析简谱结果在finalNoteArray中，在此处可以进行提取
+        //一次录音解析简谱结果在finalNoteArray中，在此处可以进行提取并且显示
+
         recordBtn.innerText = '开始录制'
         audioStream.status = false
         console.log("结束录制---");
@@ -166,6 +167,7 @@ function freqToNote(arr) {
     if (noteIndex != 0) {
         console.log(keyList[noteIndex]) // 打印对应音符下标
         finalNoteArray.push(keyList[noteIndex])
+        // finalNoteArray.push(' ')
         console.log(finalNoteArray)  //一次录音解析简谱结果在finalNoteArray中
     }
 }
@@ -194,4 +196,34 @@ function binarySearch(arr, sel) {
     }
     low = low - 1
     return low//查找完都没有查找到，就退出
+}
+
+function download(text, name, type) {
+    var a = document.getElementById("a");
+    var file = new Blob([text], { type: type });
+    a.href = URL.createObjectURL(file);
+    a.download = name;
+    a.dispatchEvent(new MouseEvent('click', { 'bubbles': false, 'cancelable': true }));
+}
+
+function downLoadDataToLoc() {
+    var blob = new Blob(finalNoteArray, { type: 'text/plain' })
+    // 创建一个blob的对象，把Json转化为字符串作为我们的值
+    if ("msSaveOrOpenBlob" in navigator) {
+        // 这个判断要不要都行，如果是IE浏览器，使用的是这个，
+        window.navigator.msSaveOrOpenBlob(blob, "results.txt");
+    } else {    // 不是IE浏览器使用的下面的
+        var url = window.URL.createObjectURL(blob)
+        // 上面这个是创建一个blob的对象连链接，
+        var link = document.createElement('a')
+        // 创建一个链接元素，是属于 a 标签的链接元素，所以括号里才是a，
+
+        link.href = url;
+        // 把上面获得的blob的对象链接赋值给新创建的这个 a 链接
+        link.setAttribute('download', "results.txt")
+        // 设置下载的属性（所以使用的是download），这个是a 标签的一个属性
+        // 后面的是文件名字，可以更改
+        link.click();
+        // 使用js点击这个链接
+    }
 }
