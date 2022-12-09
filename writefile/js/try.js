@@ -37,19 +37,19 @@ document.getElementById('loadfile').onchange = function () {
     fr.readAsArrayBuffer(file);
 }
 
-function getData() {
-    var request = new XMLHttpRequest();
-    request.open('GET', url, true);
-    request.responseType = 'arraybuffer'; // 设置数据类型为arraybuffer
-    request.onload = function () {
-        var audioData = request.response;
-        audioCtx.decodeAudioData(audioData, function (buffer) {
-            playFun(buffer);
-        },
-            function (e) { "Error with decoding audio data" + e.err });
-    }
-    request.send();
-}
+// function getData() {
+//     var request = new XMLHttpRequest();
+//     request.open('GET', url, true);
+//     request.responseType = 'arraybuffer'; // 设置数据类型为arraybuffer
+//     request.onload = function () {
+//         var audioData = request.response;
+//         audioCtx.decodeAudioData(audioData, function (buffer) {
+//             playFun(buffer);
+//         },
+//             function (e) { "Error with decoding audio data" + e.err });
+//     }
+//     request.send();
+// }
 
 function playFun(buffer) {
     AudioBufferSourceNode.buffer = buffer; // AudioBuffer数据赋值给buffer属性
