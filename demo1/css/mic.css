@@ -12,5 +12,10 @@ body{
     background-color: aliceblue;
     color: #000;
     width: 300px;
-    height: 600px;
+    height: 500px;
+}
+.return{
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: 300px;
 }

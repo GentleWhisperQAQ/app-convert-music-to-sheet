@@ -7,3 +7,9 @@ function JieXi(){
 function LuYin(){
   window.location.href = "./mic.html";
 }
+function HistRecord(){
+  window.location.href = "./histRecord.html";
+}
+function collection(){
+  window.location.href = "./collection.html";
+}
