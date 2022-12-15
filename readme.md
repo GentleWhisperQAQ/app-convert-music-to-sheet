@@ -16,3 +16,10 @@
 
 3.手机下载：cordova生成了一个android apk文件，路径在android/app/build/outputs/apk/debug/app-debug.apk，在安卓机上安装运行。
 
+# 小组成员
+
+何梦杰（GentleWhisperQAQ）
+
+常梦成（CMCgithub）
+
+徐海林（xuhi0）
