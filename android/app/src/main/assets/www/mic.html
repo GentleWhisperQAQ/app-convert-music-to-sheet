@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>录音</title>
+    <link rel="stylesheet" href="./css/mic.css">
+</head>
+
+<body>
+    <div class="return" onclick="Return()">
+        <img
+          src="./img/return2.png"
+          width="42"
+          height="41"
+          alt=""
+          style="display: block"
+        />
+      </div>
+    <audio id="audio" src="" controls></audio>
+    <button id="record">开始录音</button>
+    <button onclick="downLoadDataToLoc()">保存简谱文件</button>
+    <div class="content"></div>
+    <script src="js/mic.js"></script>
+    <script type="text/javascript" src="js/Return.js"></script>
+</body>
+
+</html>
